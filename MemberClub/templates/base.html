@@ -1,21 +1,47 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+<head>
 
-    <title>{{ title }}</title>
-  </head>
-  <body>
-    
-    <div class="container">
-        {% block content %}
-            <h1>{{user.email}}</h1>
-        {% endblock %}
-    </div>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 
-    </body>
+  <title>{{ title }}</title>
+</head>
+
+<body>
+  <h1 class="welcome"><br>Welcome to the Club!</h1>
+
+  <form class="form" id='form' action="{% url 'new_member' %}" method='POST'>{% csrf_token %}
+    <fieldset>
+      <legend>New Member</legend>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div class="member-adder">
+        <label class="name" for="name">Name:</label><br>
+        <input class="name" type="name" id="name" name="name" maxlength="255"><br>
+        <label class="email" for="email">Email:</label><br>
+        <input class="email" type="email" id="email" name="email"><br>
+      </div>
+    </fieldset>
+    <br>
+    <button type="submit" form="form" value="Submit">Add</button>
+
+    <button type="reset">Clear</button>
+  </form>
+
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+</body>
+
 </html>

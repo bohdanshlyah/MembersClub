@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Members{% endblock title %}
+
+{% block content %}
+<h3 class="members-header">Members</h3>
+<table class="table table-hover table-striped table-bordered">
+    <thead class="thead-dark"><br>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Registration Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.id }}</td>
+            <td>{{ member.name }}</td>
+            <td>{{ member.email }}</td>
+            <td>{{ member.r_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

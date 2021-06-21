@@ -1,0 +1,43 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background: #f5f7fa;
+    padding: 20px;
+}
+
+
+.welcome{
+    text-align: center;
+}
+
+.form{
+    text-align: center;
+    align-items: center;
+}
+.member-adder{
+    display: flex;
+    box-sizing: border-box;
+    margin: auto;
+    
+  align-items: center;
+  justify-content: center
+}
+
+.name{
+    display: table-cell;
+    
+}
+
+.email{
+    display: table-cell;
+}
+
+.members-header{
+    text-align: center;
+}
